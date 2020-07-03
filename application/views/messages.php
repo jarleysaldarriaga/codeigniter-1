@@ -10,6 +10,11 @@
                     <div class="form-group col-sm-10">
                         <select name="person" id="">
                             <option class="form-control" value="0" disabled>Selecciona un usuario:</option>
+                            <?php
+                                foreach ($users as $u) {
+                                    echo "<option id='user-".$u->id."' value='".$u->id."'>".$u->name." ".$u->lastname."</option>";
+                                }
+                            ?>
                         </select>
                     </div>
                     <div class="form-group">

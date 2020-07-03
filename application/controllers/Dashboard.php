@@ -97,7 +97,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         public function Messages(){
             if($_SESSION['id']){
 
-                $this->loadViews("messages");
+                $data['users'] = $this->Web_model->getUsers($_SESSION['type'],$_SESSION['course']);
+                $this->loadViews("messages", $data);
 
 
             }else{

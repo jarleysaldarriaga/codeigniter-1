@@ -97,6 +97,26 @@
                 return NULL;
             }
         }
+
+        public function getUsers($type,$course){
+            $this->db->select("*");
+
+            if($type == "professor"){
+                $this->db->from("students");
+            }
+            if($type == "student"){
+                $this->db->from("professor");
+            }
+
+            $this->db->where("course",$course);
+
+            $query = $this->db->get();
+            if($query->num_rows()>0){
+                return $query->result();
+            }else{
+                return NULL;
+            }
+        }
     }
 
 ?>
